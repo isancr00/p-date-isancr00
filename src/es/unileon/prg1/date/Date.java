@@ -1,4 +1,6 @@
 package es.unileon.prg1.date;
+
+
 /**
  * Clase realizada a partir de los ejercicios propuestos en las diapositivas.
  * @author Iván Sánchez Revuelta
@@ -7,9 +9,19 @@ package es.unileon.prg1.date;
  */
 
  public class Date{
-
+/**
+ * Atributo que establece el día
+ */
     private int day;
+
+/**
+ * Atributo que establece el mes
+ */
     private int month;
+
+/**
+ * Atributo que establece el año
+ */
     private int year;
 /**
  * Constructor de la clase Date
@@ -64,7 +76,29 @@ public String toString() {
         return day;
     }
 
+  /**
+     * Método que establece el día    
+     * @param day the day to set
+     */
+    public void setDay(int day) {
+        this.day = day;
+    }
 
+    /**
+     * Método que establece el mes
+     * @param month the month to set
+     */
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    /**
+     * Método que establece el año
+     * @param year the year to set
+     */
+    public void setYear(int year) {
+        this.year = year;
+    }
 /**
  * Método que nos devuelve el resultado de comparar el año de las fechas dadas
  * @return Devuelve true en caso de ser igual y false en caso de ser distintas
@@ -98,7 +132,7 @@ public String toString() {
  * @param anotherDate Otra fecha
  */
     public boolean isSameDay(Date anotherDate){
-        if(this.year==anotherDate.getYear()){
+        if(this.day==anotherDate.getDay()){
             return true;
         }else{
             return false;
@@ -121,15 +155,12 @@ public String toString() {
 /**
 * Método que imprime el nombre del mes
 * @return Devuelve el nombre del mes
-* @param anotherDate Otra fecha
 */
 
-   public String isMonthName(Date anotherDate){
+   public String isMonthName(){
         String nombreMes="";
-        int mes;
-       mes=getMonth();
 
-       switch(mes){
+       switch(month){
         case 1:
             nombreMes="Enero";
         break;
@@ -175,36 +206,34 @@ public String toString() {
 /**
  * Método que adjunta una estación a un mes
  * @return Devuelve el nombre de la estación a la que corresponde cada mes
- * @param anotherDate Otra fecha
  */
-   public String isSeason(Date anotherDate){
+   public String isSeason(){
 
         String season="";
-        int mes=1;
 
-        switch(mes){
+        switch(month){
             case 12:
             case 1:
             case 2:
-                season="Invierno";
+                season="invierno";
             break;
             
             case 3:
             case 4:
             case 5:
-                season="Primavera";
+                season="primavera";
             break;
 
             case 6:
             case 7:
             case 8:
-                season="Verano";
+                season="verano";
             break;
             
             case 9:
             case 10:
             case 11:
-                season="Otoño";
+                season="otoño";
             break;
         }
         return season;
@@ -247,9 +276,8 @@ public String toString() {
 /**
  * Método que comprueba que el número de días es correcto
  * @return Devuelve true si el número de días es correcto y false si no
- * @param anotherDate Otra fecha
  */
-    public boolean isDayRight(Date anotherDate){
+    public boolean isDayRight(){
         boolean right=true;
         switch(month){
             case 1:
@@ -283,11 +311,10 @@ public String toString() {
         return right;
     }
 /**
- * Método que calcula el número de mesess que quedan para que acabe el año
+ * Método que calcula el número de meses que quedan para que acabe el año
  * @return Devuelve el número de meses que quedan hasta diciembre
- * @param anotherDate Otra fecha
  */
-    public int isMonthLeft(Date anotherDate){
+    public int isMonthLeft(){
         int left=0;
         switch(month){
             case 1:
@@ -344,11 +371,72 @@ public String toString() {
 
     }
 
-    
-  }
+/**
+ * Método que imprime las fechas hasta final de mes
+ *
+ */
+    public void isDateLeft(){
+        int i;
+        String mensaje="";
+
+        for(i=this.day;i<daysOfMonth(month);i++){
+            mensaje=i+"/"+month+"/"+year;
+            System.out.println(mensaje+"\n");
+        }
+    } 
+
+    /**
+     * Método que busca los meses que tiene los mismos días que la fecha dada
+     * @return Devuelve el nombre de los meses que tienen los mismos días
+     */
+
+    public String isMonthSameDays(){
+        String months="";
+        
+        switch(month){
+           case 1: 
+                months="Marzo, Mayo, Julio, Agosto, Octubre, Diciembre";
+            break;
+
+            case 2:
+                months="Ninguno";
+            break;
+
+            case 3:
+                months="Enero, Mayo, Julio, Agosto, Octubre, Diciembre";
+            break;
+
+            case 4:
+                months="Junio, Septiembre, Noviembre";
+            break;
+
+            case 5:
+                months="Enero, Marzo, Julio, Agosto, Octubre, Diciembre";
+            break;
+
+            case 6:
+                months="Abril, Septiembre, Noviembre";
+            break;
+
+            case 7:
+                months="Enero, Marzo, Mayo, Agosto, Octubre, Diciembre";
+            break;
+
+            case 8:
+                months="Enero, Marzo, Mayo, Junio, Octubre, Diciembre";
+            break;
+
+            case 9:
+                months="Abril, Junio, Noviembre";
+            break;
+        }
+        return months;
+    }
 
 
-   
+
+ }
+
 
 
 

@@ -1,12 +1,15 @@
 package es.unileon.prg1.date;
 /**
- * Clase que hace referencia a la herencia de la clase Exception
- * @author Iván Sánchez Revuelta
+ * Clase que lanza una excepción
  * @version 1.0
- *  
+ *  @author Iván Sánchez Revuelta
  */
  public class DateException extends Exception{
-     public DateException(String message){
+    /**
+     * Método que lanza el error
+     * @param message ERROR
+     */
+    public DateException(String message){
          super(message);
      }
  }

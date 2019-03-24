@@ -1,6 +1,5 @@
 package es.unileon.prg1.date;
 
-
 /**
  * Clase que contiene el main de la clase Date.
  * @author Iván Sánchez Revuelta
@@ -20,19 +19,86 @@ package es.unileon.prg1.date;
             fecha=new Date(6,8,2018);
             otra= new Date (6,3,2018);
 
-            System.out.println("¿Coincide el año? "+ fecha.isSameYear(otra)+"\n");
-            System.out.println("¿Coincide el mes? "+fecha.isSameMonth(otra)+"\n");
-            System.out.println("¿Coincide el día? "+fecha.isSameDay(otra)+"\n");
-            System.out.println("¿Coincide la fecha? "+fecha.isSame(otra)+"\n");
-            System.out.println("El nombre del mes es "+fecha.isMonthName(fecha)+"\n");
-            System.out.println("La estación es "+fecha.isSeason(fecha)+"\n");
-            System.out.println("¿Es correcto el día? "+fecha.isDayRight(fecha)+"\n");
-            System.out.println("Los meses que quedan hasta que acabe el año son "+fecha.isMonthLeft(fecha)+"\n");
+            int i;
+            System.out.println(fecha.toString());
+            System.out.println(otra.toString());
+                      
+            
+            do{
+               
+                System.out.println("\nEscriba lo que quiere hacer: "+"\n"+"0-Salir"+"\n"+
+                "1-¿Coincide el año?"+"\n"+"2-¿Coincide el mes?"+"\n"
+                +"3-¿Coincide el día?"+"\n"+"4-¿Coincide la fecha?"+"\n"+"5-Nombre mes"+"\n"+"6-Estación"+"\n"+"7-¿Es correcto el día?"+
+                "\n"+"8-Meses que faltan hasta fin año"+"\n"+"9-Días que quedan fin mes"+"\n"+"10-Mes mismos días"+"\n"+"11-Intentos fecha aleatoria"+
+                "\n"
+                );
+                
+                i=Teclado.readInteger();
+            
+                switch(i){
+                    case 0:
+                        System.out.println("Saliendo del programa");
+                    break;
+
+                    case 1:
+                        System.out.println(fecha.isSameYear(otra)+"\n");
+                    break;
+
+                    case 2:
+                        System.out.println(fecha.isSameMonth(otra)+"\n");
+                    break;
+
+                    case 3:
+                        System.out.println(fecha.isSameDay(otra)+"\n");
+                    break;
+
+                    case 4:
+                        System.out.println(fecha.isSame(otra)+"\n");
+                    break;
+
+                    case 5:
+                        System.out.println("El nombre del mes es "+fecha.isMonthName()+"\n");
+                    break;
+
+                    case 6:
+                        System.out.println("La estación es "+fecha.isSeason()+"\n");
+                    break;
+
+                    case 7:
+                        System.out.println(fecha.isDayRight()+"\n");
+                    break;
+
+                    case 8:
+                        System.out.println("Los meses que quedan hasta que acabe el año son "+fecha.isMonthLeft()+"\n");
+                    break;
+
+                    case 9:
+                        System.out.println("Los días que quedan hasta que acabe el mes son: ");
+                        fecha.isDateLeft();
+                        System.out.println("\n");
+                    break;
+
+                    case 10:
+                        System.out.println("Los meses que tienen los mismos días que el mes introducido son "+fecha.isMonthSameDays());
+                    break;
+
+                    case 11:
+
+                    default:
+                        System.out.println("ERROR. Lea la primera instrucción\n");
+
+                }
+
+            }while(i!=0);
+                
+            
+
             
         }catch(DateException e){
             System.out.println(e.getMessage());
         }
 
-    }      
+    }
+ }      
     
- }
+ 
