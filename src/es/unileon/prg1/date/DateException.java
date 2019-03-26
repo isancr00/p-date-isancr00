@@ -4,7 +4,8 @@ package es.unileon.prg1.date;
  * @version 1.0
  *  @author Iván Sánchez Revuelta
  */
- public class DateException extends Exception{
+ @SuppressWarnings("serial")
+public class DateException extends Exception{
     /**
      * Método que lanza el error
      * @param message ERROR

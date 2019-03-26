@@ -83,6 +83,12 @@ package es.unileon.prg1.date;
                     break;
 
                     case 11:
+                        System.out.println("Los intentos son: "+fecha.israndomDate()+"\n");
+                    break;
+
+                    case 12:
+                        System.out.println("Los intentos son: "+fecha.israndomDateDo()+"\n");
+                    break;
 
                     default:
                         System.out.println("ERROR. Lea la primera instrucción\n");

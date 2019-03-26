@@ -432,6 +432,35 @@ public String toString() {
         }
         return months;
     }
+/**
+ * Método que calcula el numero de veces que son necesarias para conseguir que una fecha aleatoria sea igual a una fecha dada
+ * @return Devuelve el número de intentos necesarios
+ */
+    public int israndomDate(){
+        int i=0,j=0,tries=0;
+        while(i!=day && j!=month){
+            i=(int) (Math.random()*12)+1;
+            j=(int)(Math.random()*31)+1;
+            tries+=1;
+        }
+
+        return tries;
+    }
+/**
+ * Método que calcula el numero de veces que son necesarias para conseguir que una fecha aleatoria sea igual a una fecha dada(do while)
+ * @return Devuelve el número de intentos necesarios
+ */
+    public int israndomDateDo(){
+        int i=0,j=0,tries=0;
+        do{
+            i=(int) (Math.random()*12)+1;
+            j=(int)(Math.random()*31)+1;
+            tries+=1;
+        }while(i!=day && j!=month);
+
+        return tries;
+    }
+
 
 
 
